@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-label="Illustration of a crop field with a leaf being analysed">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CFE8F3"/><stop offset="1" stop-color="#F3F7E6"/></linearGradient>
+    <linearGradient id="h1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8DBE86"/><stop offset="1" stop-color="#5E9A62"/></linearGradient>
+    <linearGradient id="h2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5E9A62"/><stop offset="1" stop-color="#3C7A4C"/></linearGradient>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3E7B4C"/><stop offset="1" stop-color="#245B3D"/></linearGradient>
+    <radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF3B0"/><stop offset="1" stop-color="#FFF3B0" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="640" height="520" fill="url(#sky)"/>
+  <circle cx="500" cy="95" r="90" fill="url(#sun)"/>
+  <circle cx="500" cy="95" r="34" fill="#FFE98A"/>
+  <path d="M0 250C100 200 200 215 300 240S500 250 640 205V520H0Z" fill="url(#h1)"/>
+  <path d="M0 300C140 265 260 290 380 300S560 285 640 270V520H0Z" fill="url(#h2)"/>
+  <path d="M0 360C150 330 300 355 450 350S580 340 640 335V520H0Z" fill="url(#soil)"/>
+  <g stroke="#2F6B44" stroke-width="3" fill="none" opacity=".55">
+    <path d="M0 400C160 372 320 392 640 372"/><path d="M0 435C170 410 330 430 640 410"/><path d="M0 470C180 448 340 466 640 448"/>
+  </g>
+  <g fill="#7FC08A" opacity=".9">
+    <path d="M60 396c-14-4-20-14-18-26 12 2 20 12 18 26z"/><path d="M130 392c-14-4-20-14-18-26 12 2 20 12 18 26z"/>
+    <path d="M210 388c-14-4-20-14-18-26 12 2 20 12 18 26z"/><path d="M300 386c-14-4-20-14-18-26 12 2 20 12 18 26z"/>
+    <path d="M400 384c-14-4-20-14-18-26 12 2 20 12 18 26z"/><path d="M500 380c-14-4-20-14-18-26 12 2 20 12 18 26z"/>
+    <path d="M90 440c-14-4-20-14-18-26 12 2 20 12 18 26z"/><path d="M190 436c-14-4-20-14-18-26 12 2 20 12 18 26z"/>
+    <path d="M290 434c-14-4-20-14-18-26 12 2 20 12 18 26z"/><path d="M390 432c-14-4-20-14-18-26 12 2 20 12 18 26z"/>
+    <path d="M490 428c-14-4-20-14-18-26 12 2 20 12 18 26z"/><path d="M580 424c-14-4-20-14-18-26 12 2 20 12 18 26z"/>
+  </g>
+  <!-- scanned leaf -->
+  <g transform="translate(250 90) rotate(-8 100 140)">
+    <path d="M100 10C170 45 195 140 100 260 5 140 30 45 100 10z" fill="#3F8F55" stroke="#1F5A36" stroke-width="3"/>
+    <path d="M100 22V248" stroke="#BFE3C4" stroke-width="4" stroke-linecap="round"/>
+    <path d="M100 80L58 52M100 118L146 80M100 156L52 122M100 194L142 160" stroke="#BFE3C4" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <g fill="#8B5A2B" opacity=".9"><circle cx="128" cy="150" r="9"/><circle cx="72" cy="170" r="6"/><circle cx="118" cy="196" r="5"/></g>
+    <g fill="none" stroke="#C9A24F" stroke-width="2"><circle cx="128" cy="150" r="15"/><circle cx="72" cy="170" r="11"/></g>
+    <!-- scan frame -->
+    <g fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round">
+      <path d="M20 60V30H50"/><path d="M180 30h30v30"/><path d="M20 200v30h30"/><path d="M180 230h30v-30"/>
+    </g>
+    <path d="M10 140H210" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="6 8" opacity=".85"/>
+    <g fill="#FFFFFF"><circle cx="58" cy="52" r="6"/><circle cx="146" cy="80" r="6"/><circle cx="52" cy="122" r="6"/><circle cx="142" cy="160" r="6"/></g>
+  </g>
+  <!-- result chip -->
+  <g transform="translate(40 60)">
+    <rect width="190" height="86" rx="16" fill="#FFFFFF" stroke="#D9E3D4"/>
+    <rect x="16" y="16" width="70" height="12" rx="6" fill="#E3EEDD"/>
+    <rect x="16" y="38" width="150" height="10" rx="5" fill="#245B3D" opacity=".18"/>
+    <rect x="16" y="38" width="104" height="10" rx="5" fill="#245B3D"/>
+    <rect x="16" y="58" width="110" height="10" rx="5" fill="#E3EEDD"/>
+  </g>
+</svg>

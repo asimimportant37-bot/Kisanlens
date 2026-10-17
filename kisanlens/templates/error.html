@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ code }} – KisanLens{% endblock %}
+{% block content %}
+<div class="container section">
+  <div class="card empty">
+    <h1>{{ code }}</h1>
+    <p class="muted">{% if code == 404 %}We could not find that page.{% else %}Something went wrong on our side. Please try again.{% endif %}</p>
+    <a class="btn btn-primary" href="{{ url_for('page_home') }}">KisanLens Home</a>
+  </div>
+</div>
+{% endblock %}

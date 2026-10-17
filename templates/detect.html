@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Disease Detection – KisanLens{% endblock %}
+{% block content %}
+<div class="container page-head">
+  <h1 data-i18n="detect.title">AI Crop Disease Detection</h1>
+  <p data-i18n="detect.sub">Choose your crop, add a clear photo of one leaf, and press Analyze.</p>
+</div>
+
+<div class="container">
+  <div id="model-banner" class="alert alert-warn" hidden role="status"></div>
+</div>
+
+<div class="container detect-grid">
+  <section class="card" aria-labelledby="upload-title">
+    <h2 id="upload-title" class="sr-only" data-i18n="detect.title">AI Crop Disease Detection</h2>
+    <form id="detect-form" novalidate>
+      <fieldset>
+        <legend data-i18n="detect.crop">1. Which crop?</legend>
+        <div class="crop-options">
+          {% for c in crops %}
+          <label class="crop-option">
+            <input type="radio" name="crop" value="{{ c }}" {% if loop.first %}checked{% endif %}>
+            <span data-i18n="crop.{{ c }}">{{ c|capitalize }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend data-i18n="detect.photo">2. Add a leaf photo</legend>
+        <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-describedby="dz-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+          <strong data-i18n="detect.drop">Drag and drop a photo here</strong>
+          <p class="hint" id="dz-hint" data-i18n="detect.formats">JPEG, PNG or WEBP · up to 8 MB</p>
+          <div class="btn-row" style="justify-content:center;margin-top:14px">
+            <button type="button" class="btn btn-secondary btn-small" id="choose-btn" data-i18n="detect.choose">Choose file</button>
+            <button type="button" class="btn btn-secondary btn-small" id="camera-btn" data-i18n="detect.camera">Take photo</button>
+          </div>
+        </div>
+        <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" hidden>
+        <input type="file" id="camera-input" accept="image/*" capture="environment" hidden>
+
+        <div class="preview" id="preview">
+          <img id="preview-img" alt="Preview of the selected leaf photo">
+          <div class="preview-meta">
+            <span id="preview-name"></span>
+            <button type="button" class="btn btn-danger btn-small" id="remove-btn" data-i18n="detect.remove">Remove</button>
+          </div>
+        </div>
+      </fieldset>
+
+      <div id="form-error" class="alert alert-error" role="alert" hidden></div>
+      <button type="submit" class="btn btn-primary" id="analyze-btn" disabled data-i18n="detect.analyze">Analyze Leaf</button>
+    </form>
+  </section>
+
+  <aside class="card" aria-labelledby="tips-title">
+    <h2 id="tips-title" style="font-size:1.25rem" data-i18n="detect.tips.title">For a better result</h2>
+    <ul class="tips">
+      <li data-i18n="detect.tip1">Photograph one leaf in daylight, in focus, filling most of the frame.</li>
+      <li data-i18n="detect.tip2">Show the affected area clearly. Avoid shadows, flash and fingers over the leaf.</li>
+      <li data-i18n="detect.tip3">Choose the crop that matches the plant. Only tomato and potato are supported.</li>
+      <li data-i18n="detect.tip4">If the result is unsure, retake the photo or ask an agriculture expert.</li>
+    </ul>
+    <p class="muted" style="margin-top:16px;font-size:.9rem"><a href="{{ url_for('page_home') }}#understand" data-i18n="detect.more">More tips: Understand Your Crop</a></p>
+  </aside>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Scan History – KisanLens{% endblock %}
+{% block content %}
+<div class="container page-head">
+  <h1 data-i18n="history.title">Scan History</h1>
+  <p data-i18n="history.sub">Results you saved from this browser. Only you can see these images, and you can delete them at any time.</p>
+</div>
+
+<div class="container" style="padding-bottom:64px">
+  <div id="hist-msg" class="alert" role="status" hidden></div>
+  <div class="toolbar">
+    <div class="search">
+      <label class="sr-only" for="hist-search" data-i18n="history.search">Search history</label>
+      <input type="search" id="hist-search" data-i18n-placeholder="history.search" placeholder="Search by crop or disease">
+    </div>
+    <div class="chips" role="group" aria-label="Filter by crop">
+      <button class="chip" type="button" data-crop="" aria-pressed="true" data-i18n="filter.all">All</button>
+      <button class="chip" type="button" data-crop="tomato" aria-pressed="false" data-i18n="crop.tomato">Tomato</button>
+      <button class="chip" type="button" data-crop="potato" aria-pressed="false" data-i18n="crop.potato">Potato</button>
+    </div>
+    <button type="button" class="btn btn-danger btn-small" id="clear-all" hidden data-i18n="history.clear">Delete all</button>
+  </div>
+
+  <div class="card chart-card" id="chart-card" hidden>
+    <h3 data-i18n="history.chart">Saved scans by result</h3>
+    <div class="chart-wrap"><canvas id="hist-chart" role="img" aria-label="Bar chart of saved scans by predicted class"></canvas></div>
+  </div>
+
+  <div class="history-list" id="hist-list"></div>
+  <div class="card empty" id="hist-empty" hidden>
+    <h2 data-i18n="history.empty">No saved scans yet</h2>
+    <p class="muted" data-i18n="history.empty.d">After a scan, press “Save Result” to keep it here.</p>
+    <a class="btn btn-primary" href="{{ url_for('page_detect') }}" data-i18n="hero.cta">Scan Your Crop</a>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/vendor/chart.umd.js') }}"></script>{% endblock %}

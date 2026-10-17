@@ -1,0 +1,41 @@
+{
+  "dataset": {
+    "images": 16052,
+    "per_split": {
+      "train": 11236,
+      "val": 2408,
+      "test": 2408
+    },
+    "classes": [
+      "potato_early_blight",
+      "potato_healthy",
+      "potato_late_blight",
+      "tomato_bacterial_spot",
+      "tomato_early_blight",
+      "tomato_healthy",
+      "tomato_late_blight",
+      "tomato_leaf_mold",
+      "tomato_mosaic_virus",
+      "tomato_septoria_leaf_spot",
+      "tomato_spider_mites",
+      "tomato_target_spot",
+      "tomato_yellow_leaf_curl_virus"
+    ],
+    "weights": "imagenet",
+    "note": "Measured on PlantVillage-style images only; not evidence of field performance."
+  },
+  "test_accuracy": 0.964,
+  "test_macro_f1": 0.959,
+  "thresholds": {
+    "min_confidence": 0.7,
+    "min_margin": 0.2
+  },
+  "thresholds_on_validation": {
+    "accepted_accuracy": 0.985,
+    "coverage": 0.942
+  },
+  "thresholds_on_test": {
+    "accepted_accuracy": 0.981,
+    "coverage": 0.938
+  }
+}

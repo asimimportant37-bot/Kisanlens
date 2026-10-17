@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Disease Library – KisanLens{% endblock %}
+{% block content %}
+<div class="container page-head">
+  <h1 data-i18n="diseases.title">Disease Library</h1>
+  <p data-i18n="diseases.sub">Background information on the conditions KisanLens can recognise. This is general guidance and is separate from any scan prediction.</p>
+</div>
+
+<div class="container" style="padding-bottom:64px">
+  <div id="lib-source" class="alert alert-info" hidden role="status"></div>
+  <div class="toolbar">
+    <div class="search">
+      <label class="sr-only" for="lib-search" data-i18n="diseases.search">Search diseases</label>
+      <input type="search" id="lib-search" data-i18n-placeholder="diseases.search" placeholder="Search diseases or symptoms">
+    </div>
+    <div class="chips" role="group" aria-label="Filter by crop">
+      <button class="chip" type="button" data-crop="" aria-pressed="true" data-i18n="filter.all">All</button>
+      <button class="chip" type="button" data-crop="tomato" aria-pressed="false" data-i18n="crop.tomato">Tomato</button>
+      <button class="chip" type="button" data-crop="potato" aria-pressed="false" data-i18n="crop.potato">Potato</button>
+    </div>
+  </div>
+  <p class="muted" id="lib-count" aria-live="polite"></p>
+  <div class="grid grid-3" id="lib-grid"></div>
+  <div class="card empty" id="lib-empty" hidden><p data-i18n="diseases.none">No matching entries.</p></div>
+
+  <section class="card" style="margin-top:32px">
+    <h3 data-i18n="diseases.refs.title">Where to verify this information</h3>
+    <p class="muted" data-i18n="diseases.refs.d">Check these sources or your local agriculture office before acting on any advice here.</p>
+    <ul class="refs info-list" id="lib-refs"></ul>
+  </section>
+</div>
+{% endblock %}

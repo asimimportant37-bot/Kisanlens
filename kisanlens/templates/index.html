@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow" data-i18n="hero.badge">AI-assisted crop health · SETU 2026</span>
+      <h1 data-i18n="hero.title">Healthy Crops. Smarter Farming.</h1>
+      <p class="lead" data-i18n="hero.text">Take a photo of a tomato or potato leaf. KisanLens uses an image-classification model to suggest the most likely disease, explains it in simple words, and shares careful crop-care guidance.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="{{ url_for('page_detect') }}" data-i18n="hero.cta">Scan Your Crop</a>
+        <a class="btn btn-secondary" href="{{ url_for('page_diseases') }}" data-i18n="hero.cta2">Explore Diseases</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong data-i18n="hero.stat1.v">Tomato &amp; Potato</strong><span data-i18n="hero.stat1.l">supported crops</span></div>
+        <div><strong data-i18n="hero.stat2.v">English &amp; हिन्दी</strong><span data-i18n="hero.stat2.l">languages</span></div>
+        <div><strong data-i18n="hero.stat3.v">Private</strong><span data-i18n="hero.stat3.l">your scans stay on this server</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="{{ url_for('static', filename='images/hero.svg') }}" alt="Illustration of a crop field with a leaf being scanned" width="640" height="520">
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="features-title">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="features-title" data-i18n="features.title">Built for the field</h2>
+    </div>
+    <div class="grid grid-4">
+      <article class="card hoverable">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c5 2 7 7 4 12-1.5 2.2-3 4-4 6-1-2-2.5-3.800-4-6-3-5-1-10 4-12z"/><path d="M12 8v13M12 12l-3-2M12 15l3-2"/></svg></div>
+        <h3 data-i18n="feat.ai.t">AI disease detection</h3>
+        <p data-i18n="feat.ai.d">A trained neural network compares your leaf photo with thousands of examples and shows its top three guesses.</p>
+      </article>
+      <article class="card hoverable">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z"/><path d="M8 7h6M8 11h6M8 15h4"/></svg></div>
+        <h3 data-i18n="feat.guide.t">Crop-care guidance</h3>
+        <p data-i18n="feat.guide.d">Plain-language symptoms, prevention and management tips, with clear advice on when to ask an expert.</p>
+      </article>
+      <article class="card hoverable">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+        <h3 data-i18n="feat.lang.t">Multilingual support</h3>
+        <p data-i18n="feat.lang.d">Use KisanLens in English or Hindi. More Indian languages can be added by extending one translation file.</p>
+      </article>
+      <article class="card hoverable">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3 data-i18n="feat.history.t">Scan history</h3>
+        <p data-i18n="feat.history.d">Save results and look back to see how your crop changes over time. Delete them whenever you like.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section band" aria-labelledby="steps-title">
+  <div class="container">
+    <div class="section-head"><h2 id="steps-title" data-i18n="steps.title">How it works</h2></div>
+    <div class="grid grid-3 steps">
+      <div class="card step"><div class="step-num" style="background:#fff;color:#245B3D">1</div><h3 data-i18n="step.1.t">Upload</h3><p data-i18n="step.1.d">Choose a clear photo of one leaf, or take one with your phone camera.</p></div>
+      <div class="card step"><div class="step-num" style="background:#fff;color:#245B3D">2</div><h3 data-i18n="step.2.t">Analyze</h3><p data-i18n="step.2.d">The AI model estimates what the leaf shows and how sure it is.</p></div>
+      <div class="card step"><div class="step-num" style="background:#fff;color:#245B3D">3</div><h3 data-i18n="step.3.t">Take Action</h3><p data-i18n="step.3.d">Read the guidance, retake the photo if unsure, and confirm with an agriculture expert.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="understand" aria-labelledby="learn-title">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="learn-title" data-i18n="learn.title">Understand Your Crop</h2>
+      <p data-i18n="learn.intro">A photo is only a starting point. These tips help you get a useful result and use it wisely.</p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card"><h3 data-i18n="learn.photo.t">Take a useful leaf photo</h3><p data-i18n="learn.photo.d">Use daylight, not harsh sun or flash. Fill the frame with one leaf, keep it in focus, and show both healthy and affected parts. A plain background helps.</p></article>
+      <article class="card"><h3 data-i18n="learn.similar.t">Similar symptoms, different causes</h3><p data-i18n="learn.similar.d">Fungi, bacteria, viruses, pests, nutrient shortage and weather damage can all cause spots or yellowing. The same-looking leaf may need very different care.</p></article>
+      <article class="card"><h3 data-i18n="learn.wrong.t">Why predictions can be wrong</h3><p data-i18n="learn.wrong.d">The model learned mostly from clean, close-up photos. Blurry images, shadows, dirt, other diseases or crops it was not trained on can fool it. A high confidence score is not proof.</p></article>
+      <article class="card"><h3 data-i18n="learn.expert.t">Ask an expert</h3><p data-i18n="learn.expert.d">Show the affected plant to your nearest Krishi Vigyan Kendra (KVK), agriculture officer or trusted agronomist, especially if the problem is spreading.</p></article>
+      <article class="card"><h3 data-i18n="learn.local.t">Follow local recommendations</h3><p data-i18n="learn.local.d">Approved products, doses and timing depend on your state, crop stage and weather. KisanLens never gives chemical doses; follow your local agriculture department's advice.</p></article>
+      <article class="card" style="background:var(--green-100)"><h3 data-i18n="learn.cta.t">Ready to try?</h3><p style="color:var(--text)" data-i18n="learn.cta.d">Scan a tomato or potato leaf now.</p><p style="margin-top:14px"><a class="btn btn-primary btn-small" href="{{ url_for('page_detect') }}" data-i18n="hero.cta">Scan Your Crop</a></p></article>
+    </div>
+  </div>
+</section>
+{% endblock %}

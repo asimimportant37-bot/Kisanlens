@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#245B3D">
+  <meta name="description" content="KisanLens helps farmers check tomato and potato leaves for possible diseases using AI, with simple, responsible crop-care guidance.">
+  <title>{% block title %}KisanLens – Healthy Crops. Smarter Farming.{% endblock %}</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/logo.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body data-page="{{ page }}">
+  <a class="skip-link" href="#main" data-i18n="nav.skip">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ url_for('page_home') }}" aria-label="KisanLens home">
+        <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="" width="38" height="38">
+        <span>Kisan<em>Lens</em></span>
+      </a>
+      <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav" data-i18n="nav.menu">Menu</button>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="{{ url_for('page_home') }}" data-i18n="nav.home" {% if page == 'home' %}aria-current="page"{% endif %}>Home</a>
+        <a href="{{ url_for('page_detect') }}" data-i18n="nav.detect" {% if page in ('detect', 'results') %}aria-current="page"{% endif %}>Disease Detection</a>
+        <a href="{{ url_for('page_diseases') }}" data-i18n="nav.library" {% if page == 'diseases' %}aria-current="page"{% endif %}>Disease Library</a>
+        <a href="{{ url_for('page_history') }}" data-i18n="nav.history" {% if page == 'history' %}aria-current="page"{% endif %}>Scan History</a>
+        <a href="{{ url_for('page_about') }}" data-i18n="nav.about" {% if page == 'about' %}aria-current="page"{% endif %}>About</a>
+        <div class="lang">
+          <label class="sr-only" for="lang-select" data-i18n="lang.label">Language</label>
+          <select id="lang-select">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+          </select>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>KisanLens</h3>
+        <p data-i18n="footer.about">An AI-assisted crop health project built for SETU 2026. It supports tomato and potato leaves only.</p>
+      </div>
+      <div>
+        <h3 data-i18n="footer.disclaimer.title">Responsible use</h3>
+        <p class="disclaimer" data-i18n="footer.disclaimer">KisanLens gives an automated estimate from a photo. It can be wrong and does not replace an agricultural expert. Always follow locally approved recommendations before spraying or treating a crop.</p>
+      </div>
+    </div>
+    <div class="container"><small data-i18n="footer.copy">© 2026 KisanLens – hackathon prototype.</small></div>
+  </footer>
+
+  <div class="loader" id="loader" role="status" aria-live="polite">
+    <div class="spinner" aria-hidden="true"></div>
+    <div id="loader-text" data-i18n="detect.processing">Analysing your leaf…</div>
+  </div>
+
+  {% block scripts %}{% endblock %}
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

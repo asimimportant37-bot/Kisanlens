@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="KisanLens logo">
+  <rect width="64" height="64" rx="16" fill="#245B3D"/>
+  <path d="M32 9c13 6 18 20 11 33-3 5-7 9-11 13-4-4-8-8-11-13C14 29 19 15 32 9z" fill="#6DB07A"/>
+  <path d="M32 14v38" stroke="#E3EEDD" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M32 26l-8-6M32 33l9-7M32 41l-8-5" stroke="#E3EEDD" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <g fill="#F5F8F2">
+    <circle cx="24" cy="20" r="2.4"/><circle cx="41" cy="26" r="2.4"/><circle cx="24" cy="36" r="2.4"/><circle cx="32" cy="14" r="2.4"/>
+  </g>
+  <circle cx="32" cy="33" r="14.5" fill="none" stroke="#F5F8F2" stroke-width="1.2" stroke-dasharray="2 3" opacity=".7"/>
+</svg>

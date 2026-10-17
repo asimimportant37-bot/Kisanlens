@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}About – KisanLens{% endblock %}
+{% block content %}
+<div class="container page-head">
+  <h1 data-i18n="about.title">About KisanLens</h1>
+  <p data-i18n="about.intro">KisanLens is a hackathon prototype that shows how image-classification AI can give farmers a quick first look at leaf health.</p>
+</div>
+
+<div class="container" style="padding-bottom:64px">
+  <div class="grid grid-2">
+    <section class="card">
+      <h3 data-i18n="about.how.t">How it works</h3>
+      <p data-i18n="about.how.d">A MobileNetV2 neural network, pre-trained on general images and then trained on labelled tomato and potato leaf photos, estimates the probability of each supported class. Photos are checked and resized on the server; nothing is guessed if the model is missing.</p>
+    </section>
+    <section class="card">
+      <h3 data-i18n="about.limits.t">Limits you should know</h3>
+      <ul class="info-list">
+        <li data-i18n="about.limits.1">Only tomato and potato leaves are supported, and only the listed conditions.</li>
+        <li data-i18n="about.limits.2">The training photos were mostly taken against plain backgrounds. Real field photos can look very different and results may be less accurate.</li>
+        <li data-i18n="about.limits.3">It cannot tell nutrient shortage, herbicide damage or many other problems from disease.</li>
+        <li data-i18n="about.limits.4">It does not give chemical names or doses. Always follow local expert advice.</li>
+      </ul>
+    </section>
+    <section class="card" id="metrics-card">
+      <h3 data-i18n="about.metrics.t">Measured model performance</h3>
+      <div id="metrics-body"><p class="muted" data-i18n="about.metrics.loading">Loading…</p></div>
+    </section>
+    <section class="card">
+      <h3 data-i18n="about.privacy.t">Privacy</h3>
+      <p data-i18n="about.privacy.d">Uploaded photos are re-encoded, stored under random names on the server, and shown only to the browser session that uploaded them. You can delete saved scans from the Scan History page.</p>
+      <h3 style="margin-top:20px" data-i18n="about.credit.t">Data credit</h3>
+      <p data-i18n="about.credit.d">Model training uses the PlantVillage dataset (Hughes &amp; Salathé, 2015). Disease information should be checked against the references listed in the Disease Library.</p>
+    </section>
+  </div>
+</div>
+{% endblock %}

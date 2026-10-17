@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Results – KisanLens{% endblock %}
+{% block content %}
+<div class="container page-head">
+  <h1 data-i18n="results.title">Scan Result</h1>
+</div>
+
+<div class="container" id="results-root">
+  <div class="card empty" id="results-empty" hidden>
+    <h2 data-i18n="results.nodata">No result to show yet</h2>
+    <p class="muted" data-i18n="results.nodata.d">Scan a leaf first, then your result will appear here.</p>
+    <a class="btn btn-primary" href="{{ url_for('page_detect') }}" data-i18n="hero.cta">Scan Your Crop</a>
+  </div>
+
+  <div id="results-content" hidden>
+    <div id="results-warnings"></div>
+    <div class="result-grid">
+      <section class="card result-img" aria-label="Uploaded image">
+        <img id="res-img" alt="The leaf photo you uploaded">
+        <p class="muted" style="margin:12px 0 0;font-size:.9rem"><span data-i18n="results.crop">Selected crop</span>: <strong id="res-crop"></strong></p>
+      </section>
+
+      <section class="card" aria-labelledby="res-name">
+        <span class="badge" id="res-kind"></span>
+        <h2 class="pred-name" id="res-name"></h2>
+        <p class="muted" style="margin:0" data-i18n="results.pred">Most likely classification</p>
+        <div class="conf"><span class="conf-num" id="res-conf"></span><span class="muted" data-i18n="results.conf">model confidence</span></div>
+        <div class="bar" id="res-bar" role="presentation"><i></i></div>
+        <p class="disclaimer" style="margin-top:12px" data-i18n="results.conf.note">Confidence is the model's own score. It is not proof that the diagnosis is correct.</p>
+        <h3 style="margin-top:20px" data-i18n="results.top3">Top three possibilities</h3>
+        <ul class="top3" id="res-top3"></ul>
+      </section>
+    </div>
+
+    <div class="grid grid-3" id="res-guidance" style="margin-bottom:24px">
+      <section class="card"><h3 data-i18n="results.symptoms">Common symptoms</h3><ul class="info-list" id="res-symptoms"></ul></section>
+      <section class="card"><h3 data-i18n="results.prevention">Prevention and crop care</h3><ul class="info-list" id="res-prevention"></ul></section>
+      <section class="card"><h3 data-i18n="results.management">General management</h3><ul class="info-list" id="res-management"></ul></section>
+    </div>
+
+    <section class="card expert" id="res-expert" style="margin-bottom:24px">
+      <h3 data-i18n="results.expert.title">When to consult an agriculture expert</h3>
+      <ul class="info-list">
+        <li data-i18n="results.expert.1">The result is uncertain, or the plant looks worse than the photo suggests.</li>
+        <li data-i18n="results.expert.2">The problem is spreading to other leaves, plants or fields.</li>
+        <li data-i18n="results.expert.3">You are about to buy or spray any chemical. Get locally approved advice on product, dose and timing first.</li>
+        <li data-i18n="results.expert.4">The disease is one that can spread fast (for example late blight or a virus).</li>
+      </ul>
+      <p style="margin:12px 0 0" class="muted" data-i18n="results.expert.who">Contact your nearest Krishi Vigyan Kendra (KVK), block agriculture officer, or State Agriculture Department.</p>
+    </section>
+
+    <div id="res-action-msg" class="alert" role="status" hidden></div>
+    <div class="btn-row" style="margin-bottom:48px">
+      <a class="btn btn-primary" href="{{ url_for('page_detect') }}" data-i18n="results.again">Scan Another Leaf</a>
+      <button type="button" class="btn btn-secondary" id="save-btn" data-i18n="results.save">Save Result</button>
+      <a class="btn btn-secondary" href="{{ url_for('page_history') }}" data-i18n="results.viewhistory">View Scan History</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
